@@ -18,6 +18,8 @@ Tested on Ubuntu 20.04
  5) docker-compose up -d 
  6) Wait a little and connect to http://<your_IP>:8080 
 
+Note: 
+ * Use [minio-keygen](https://github.com/JMousqueton/minio-keygen) to generate minio keygen
 
 ## References 
  
