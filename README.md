@@ -19,7 +19,8 @@ Tested on Ubuntu 20.04
  6) Wait a little and connect to http://<your_IP>:8080 
 
 Note: 
- * Use [minio-keygen](https://github.com/JMousqueton/minio-keygen) to generate minio keygen
+ * Use [minio-keygen](https://github.com/JMousqueton/minio-keygen) to generate minio keygen.
+ * use ``docker-compose scale worker=3`` to scale the number of workers to 3.
 
 ## References 
  
