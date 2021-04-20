@@ -4,8 +4,11 @@
 [![Twitter: JMousqueton](https://img.shields.io/twitter/follow/JMousqueton.svg?style=social)](https://twitter.com/JMousqueton)
 
 > Docker-compose file to deploy OpenCTI with connectors
+> [OpenCTI](https://www.opencti.io) is an open source platform allowing organizations to manage their cyber threat intelligence knowledge and observables. It has been created in order to structure, store, organize and visualize technical and non-technical information about cyber threats.
 
 ## Usage
+
+Tested on Ubuntu 20.04 
 
  1) git clone https://github.com/JMousqueton/OpenCTI-Docker
  2) cd OpenCTI-Docker 
