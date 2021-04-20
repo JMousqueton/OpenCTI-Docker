@@ -14,6 +14,14 @@
  5) docker-compose up -d 
  6) Wait a little and connect to http://<your_IP>:8080 
 
+
+## References 
+ 
+ * OpenCTI: https://www.opencti.io 
+ * OpenCTI (sources): https://github.com/OpenCTI-Platform/opencti
+ * OpenCTI (Docker sources): https://github.com/OpenCTI-Platform/docker
+ * OpenCTI (Connectors sources): https://github.com/OpenCTI-Platform/connectors
+
 ## Author
 
 👤 **Julien Mousqueton**
