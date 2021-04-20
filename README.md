@@ -36,6 +36,7 @@ Note:
 * Twitter: [@JMousqueton](https://twitter.com/JMousqueton)
 * Github: [@JMousqueton](https://github.com/JMousqueton)
 * LinkedIn: [@julienmousqueton](https://linkedin.com/in/julienmousqueton)
+* CV : https://jmousqueton.github.io
 
 ## Show your support
 
