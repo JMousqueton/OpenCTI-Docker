@@ -26,15 +26,16 @@ Note:
 
  1) ``cd OpenCTI-Docker``
  2) ``git pull`` 
- 3)  ``docker-compose pull`` 
+ 3) ``docker-compose pull`` 
  4) ``docker-compose up -d``  
 
 ## Scale 
 
 You can scale the number of worker up to 3.
 
-1) ``cd OpenCTI-Docker``
-2) docker-compose scale worker=3 
+In the OpenCTI directory : 
+
+* ``docker-compose scale worker=3`` 
 
 ## References 
  
