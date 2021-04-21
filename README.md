@@ -1,5 +1,5 @@
 # Welcome to OpenCTI-Docker 👋
-![Version](https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-4.4.1-blue.svg?cacheSeconds=2592000)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache2.0-yellow.svg)](#)
 [![Twitter: JMousqueton](https://img.shields.io/twitter/follow/JMousqueton.svg?style=social)](https://twitter.com/JMousqueton)
 
