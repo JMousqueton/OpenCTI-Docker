@@ -9,7 +9,7 @@
 
 ## Information 
 
-This Docker-compose file incluse the following OpenCTI connectors : 
+This Docker-compose file include the following OpenCTI connectors : 
 
 | Name | Request a token/api key |
 | ------- | ------------------ |
