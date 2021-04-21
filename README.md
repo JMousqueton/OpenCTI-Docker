@@ -7,6 +7,26 @@
 > 
 > [OpenCTI](https://www.opencti.io) is an open source platform allowing organizations to manage their cyber threat intelligence knowledge and observables. It has been created in order to structure, store, organize and visualize technical and non-technical information about cyber threats.
 
+## Information 
+
+This Docker-compose file incluse the following OpenCTI connectors : 
+
+| Name | Request a token/api key |
+| ------- | ------------------ |
+| Common Vulnerabilities and Exposures | :x: |
+| VirusTotal | :white_check_mark: |
+| MITRE ATT&CK | :x: |
+| OpenCTI | :x: |
+| Cybercrime-Tracker (ANSSI) | :x: |
+| CyberThreatCoalition | :x: |
+| AM!TT | :white_check_mark: |
+| AlienVault | :white_check_mark: |
+| AbuseIPDB | :white_check_mark: |
+| Valhalla | :white_check_mark: |
+| Abuse.ch URLhaus | :x: |
+| Malbeacon  | :white_check_mark: |
+| greynoise  | :white_check_mark: |
+
 ## Usage
 
 Tested on Ubuntu 20.04 
