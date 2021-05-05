@@ -7,10 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+None 
+
+## [4.5.0-2] - 2021-05-05 
+
 ### Added 
 
  - This CHANGELOG file
  - Connector [Greynoise](https://www.greynoise.io)
+ - Connector [Hybrid Analysis Sandbox](https://www.hybrid-analysis.com/)
+ - Connector [Sekoia](https://www.Sekoia.io)
+
+### Changed  
+
+- OpenCTI moved to release 4.5.0
+- All connectors moved to release 5.5.0
 
 ### Fixed
  - Abuse IP DB Connector API key environnement variable 
