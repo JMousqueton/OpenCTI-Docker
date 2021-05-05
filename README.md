@@ -9,7 +9,7 @@
 
 ## Information 
 
-This Docker-compose file include the following OpenCTI connectors : 
+- This Docker-compose file include the following OpenCTI connectors : 
 
 | Name | Request a token/api key |
 | ------- | ------------------ |
@@ -28,6 +28,8 @@ This Docker-compose file include the following OpenCTI connectors :
 | greynoise  | :white_check_mark: |
 | Hybrid Analysis Sandbox | :white_check_mark: |
 | Sekoia | :white_check_mark: | 
+
+- [Changelog](https://github.com/JMousqueton/OpenCTI-Docker/blob/main/CHANGELOG.md)
 
 ## Usage
 
