@@ -9,6 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 None 
 
+## [4.5.2-2] - 2021-05-14
+### Added 
+
+ - Add Tanium connector 
+
+## Changed 
+
+- OpenCTI moved to release 4.5.2 
+- All connectors moved to releases 4.5.2 
+- Redis moved to version 6.2.3
+
 ## [4.5.0-2] - 2021-05-05 
 
 ### Added 
