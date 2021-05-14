@@ -28,6 +28,7 @@
 | greynoise  | :white_check_mark: |
 | Hybrid Analysis Sandbox | :white_check_mark: |
 | Sekoia | :white_check_mark: | 
+| Tanium | :white_check_mark: | 
 
 - [Changelog](https://github.com/JMousqueton/OpenCTI-Docker/blob/main/CHANGELOG.md)
 
