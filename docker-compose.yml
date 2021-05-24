@@ -44,7 +44,7 @@ services:
       - amqpdata:/var/lib/rabbitmq
     restart: always
   opencti:
-    image: opencti/platform:4.5.2
+    image: opencti/platform:4.5.3
     environment:
       - NODE_OPTIONS=--max-old-space-size=8096
       - APP__PORT=8080
@@ -76,7 +76,7 @@ services:
       - rabbitmq
     restart: always
   worker:
-    image: opencti/worker:4.5.2
+    image: opencti/worker:4.5.3
     environment:
       - OPENCTI_URL=http://opencti:8080
       - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
@@ -88,7 +88,7 @@ services:
       replicas: 3
     restart: always
   connector-history:
-    image: opencti/connector-history:4.5.2
+    image: opencti/connector-history:4.5.3
     environment:
       - OPENCTI_URL=http://opencti:8080
       - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
@@ -100,7 +100,7 @@ services:
       - CONNECTOR_LOG_LEVEL=info
     restart: always
   connector-export-file-stix:
-    image: opencti/connector-export-file-stix:4.5.2
+    image: opencti/connector-export-file-stix:4.5.3
     environment:
       - OPENCTI_URL=http://opencti:8080
       - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
@@ -112,7 +112,7 @@ services:
       - CONNECTOR_LOG_LEVEL=info
     restart: always
   connector-export-file-csv:
-    image: opencti/connector-export-file-csv:4.5.2
+    image: opencti/connector-export-file-csv:4.5.3
     environment:
       - OPENCTI_URL=http://opencti:8080
       - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
@@ -124,7 +124,7 @@ services:
       - CONNECTOR_LOG_LEVEL=info
     restart: always
   connector-import-file-stix:
-    image: opencti/connector-import-file-stix:4.5.2
+    image: opencti/connector-import-file-stix:4.5.3
     environment:
       - OPENCTI_URL=http://opencti:8080
       - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
@@ -137,7 +137,7 @@ services:
       - CONNECTOR_LOG_LEVEL=info
     restart: always
   connector-import-file-pdf-observables:
-    image: opencti/connector-import-file-pdf-observables:4.5.2
+    image: opencti/connector-import-file-pdf-observables:4.5.3
     environment:
       - OPENCTI_URL=http://opencti:8080
       - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
@@ -151,7 +151,7 @@ services:
       - PDF_OBSERVABLES_CREATE_INDICATOR=False
     restart: always
   connector-cve:
-    image: opencti/connector-cve:4.5.2
+    image: opencti/connector-cve:4.5.3
     environment:
       - OPENCTI_URL=http://opencti:8080
       - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
@@ -168,7 +168,7 @@ services:
       - CVE_INTERVAL=7 # In days, must be strictly greater than 1
     restart: always
   connector-virustotal:
-    image: opencti/connector-virustotal:4.5.2
+    image: opencti/connector-virustotal:4.5.3
     environment:
       - OPENCTI_URL=http://opencti:8080
       - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
@@ -183,7 +183,7 @@ services:
       - VIRUSTOTAL_MAX_TLP=TLP:AMBER
     restart: always
   connector-mitre:
-    image: opencti/connector-mitre:4.5.2
+    image: opencti/connector-mitre:4.5.3
     environment:
       - OPENCTI_URL=http://opencti:8080
       - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
@@ -200,7 +200,7 @@ services:
       - MITRE_INTERVAL=7 # In days, must be strictly greater than 1
     restart: always
   connector-opencti:
-    image: opencti/connector-opencti:4.5.2
+    image: opencti/connector-opencti:4.5.3
     environment:
       - OPENCTI_URL=http://opencti:8080
       - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
@@ -216,7 +216,7 @@ services:
       - CONFIG_INTERVAL=7 # In days, must be strictly greater than 1
     restart: always
   connector-cybercrimetracker:
-    image: opencti/connector-cybercrime-tracker:4.5.2
+    image: opencti/connector-cybercrime-tracker:4.5.3
     environment:
       - OPENCTI_URL=http://opencti:8080
       - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
@@ -234,7 +234,7 @@ services:
       - CYBERCRIME_TRACKER_CREATE_OBSERVABLES=true
     restart: always
   connector-cyber-threat-coalition:
-    image: opencti/connector-cyber-threat-coalition:4.5.2
+    image: opencti/connector-cyber-threat-coalition:4.5.3
     environment:
       - OPENCTI_URL=http://opencti:8080
       - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
@@ -251,7 +251,7 @@ services:
       - CYBER_THREAT_COALITION_CREATE_OBSERVABLES=true
     restart: always
   connector-amitt:
-    image: opencti/connector-amitt:4.5.2
+    image: opencti/connector-amitt:4.5.3
     environment:
       - OPENCTI_URL=http://opencti:8080
       - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
@@ -267,7 +267,7 @@ services:
       - AMITT_INTERVAL=7 # In days, must be strictly greater than 1
     restart: always
   connector-alienvault:
-    image: opencti/connector-alienvault:4.5.2
+    image: opencti/connector-alienvault:4.5.3
     environment:
       - OPENCTI_URL=http://opencti:8080
       - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
@@ -292,7 +292,7 @@ services:
       - ALIENVAULT_INTERVAL_SEC=1800
     restart: always
   connector-abuseipdb:
-    image: opencti/connector-abuseipdb:4.5.2
+    image: opencti/connector-abuseipdb:4.5.3
     environment:
       - OPENCTI_URL=http://opencti:8080
       - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
@@ -307,7 +307,7 @@ services:
       - ABUSEIPDB_MAX_TLP=TLP:AMBER
     restart: always
   connector-valhalla:
-    image: opencti/connector-valhalla:4.5.2
+    image: opencti/connector-valhalla:4.5.3
     environment:
       - OPENCTI_URL=http://opencti:8080
       - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
@@ -322,7 +322,7 @@ services:
       - VALHALLA_INTERVAL_SEC=86400 # Run once every day
     restart: always
   connector-urlhaus:
-    image: opencti/connector-urlhaus:4.5.2
+    image: opencti/connector-urlhaus:4.5.3
     environment:
       - OPENCTI_URL=http://opencti:8080
       - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
@@ -339,7 +339,7 @@ services:
       - URLHAUS_INTERVAL=3 # In days, must be strictly greater than 1
     restart: always
   connector-malbeacon:
-    image: opencti/connector-malbeacon:4.5.2
+    image: opencti/connector-malbeacon:4.5.3
     environment:
       - OPENCTI_URL=http://opencti:8080
       - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
@@ -353,7 +353,7 @@ services:
       - MALBEACON_API_KEY=${CONNECTOR_MALBEACON_API_KEY}
     restart: always
   connector-greynoise:
-    image: opencti/connector-greynoise:4.5.2
+    image: opencti/connector-greynoise:4.5.3
     environment:
       - OPENCTI_URL=http://opencti:8080
       - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
@@ -372,7 +372,7 @@ services:
       - GREYNOISE_SPOOFABLE_CONFIDENCE_LEVEL=30
     restart: always
   connector-hybrid-analysis-sandbox:
-    image: opencti/connector-hybrid-analysis-sandbox:4.5.2
+    image: opencti/connector-hybrid-analysis-sandbox:4.5.3
     environment:
       - OPENCTI_URL=http://opencti:8080
       - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
@@ -388,7 +388,7 @@ services:
       - HYBRID_ANALYSIS_MAX_TLP=TLP:AMBER
     restart: always
   connector-sekoia:
-    image: opencti/connector-sekoia:4.5.2
+    image: opencti/connector-sekoia:4.5.3
     environment:
       - OPENCTI_URL=http://opencti:8080
       - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
@@ -404,7 +404,7 @@ services:
 version: "3"
 services:
   connector-tanium:
-    image: opencti/connector-tanium:4.5.2
+    image: opencti/connector-tanium:4.5.3
     environment:
       - OPENCTI_URL=http://opencti:8080
       - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
