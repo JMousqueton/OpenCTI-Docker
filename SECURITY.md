@@ -11,4 +11,4 @@ which versions are currently being supported with security updates.
 
 ## Reporting a Vulnerability
 
-Use [Issues](https://github.com/JMousqueton/OpenCTI-Docker/issues) to report any vulnerability 
+Use [Issues](https://github.com/JMousqueton/OpenCTI-Docker/issues) to report any vulnerability

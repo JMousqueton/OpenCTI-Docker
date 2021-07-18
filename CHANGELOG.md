@@ -7,42 +7,58 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-None 
+None
+
+## [4.5.5] - 2021-07-18
+
+## Changed
+
+- OpenCTI moved to release 4.5.5
+- All connectors moved to releases 4.5.5
+- Use ElasticSearch version 7.13.1
+- Use Redis version 6.2.4
+- Update minio version
+
+## Add 
+
+- Add CryptoLaemus connector
 
 ## [4.5.3] - 2021-05-24
 
-## Changed 
+## Changed
 
 - OpenCTI moved to release 4.5.3
 - All connectors moved to releases 4.5.3
 
 ## [4.5.2] - 2021-05-14
-### Added 
 
- - Add Tanium connector 
+### Added
 
-## Changed 
+- Add Tanium connector
 
-- OpenCTI moved to release 4.5.2 
-- All connectors moved to releases 4.5.2 
+## Changed
+
+- OpenCTI moved to release 4.5.2
+- All connectors moved to releases 4.5.2
 - Redis moved to version 6.2.3
 
-## [4.5.0-2] - 2021-05-05 
+## [4.5.0-2] - 2021-05-05
 
-### Added 
+### Added
 
- - This CHANGELOG file
- - Connector [Greynoise](https://www.greynoise.io)
- - Connector [Hybrid Analysis Sandbox](https://www.hybrid-analysis.com/)
- - Connector [Sekoia](https://www.Sekoia.io)
+- This CHANGELOG file
+- Connector [Greynoise](https://www.greynoise.io)
+- Connector [Hybrid Analysis Sandbox](https://www.hybrid-analysis.com/)
+- Connector [Sekoia](https://www.Sekoia.io)
 
-### Changed  
+### Changed
 
 - OpenCTI moved to release 4.5.0
 - All connectors moved to release 5.5.0
 
 ### Fixed
- - Abuse IP DB Connector API key environnement variable 
+
+- Abuse IP DB Connector API key environnement variable
 
 ## [4.4.1] - 2021-04-21
 
