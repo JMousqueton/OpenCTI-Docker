@@ -7,7 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-None
+## Changed
+
+- Use .env variable CTI_VERSION for all images in docker-compose,yml
+
+## Add
+
+- Use docker-compose v3 profile option to enable or disable connector container. See Readme.md 
 
 ## [4.5.5] - 2021-07-18
 
@@ -19,7 +25,7 @@ None
 - Use Redis version 6.2.4
 - Update minio version
 
-## Add 
+## Add
 
 - Add CryptoLaemus connector
 
