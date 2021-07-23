@@ -99,6 +99,8 @@ services:
       - CONNECTOR_CONFIDENCE_LEVEL=15 # From 0 (Unknown) to 100 (Fully trusted)
       - CONNECTOR_LOG_LEVEL=info
     restart: always
+    depends_on:
+      - opencti
   connector-export-file-stix:
     image: opencti/connector-export-file-stix:4.5.5
     environment:
@@ -111,6 +113,8 @@ services:
       - CONNECTOR_CONFIDENCE_LEVEL=15 # From 0 (Unknown) to 100 (Fully trusted)
       - CONNECTOR_LOG_LEVEL=info
     restart: always
+    depends_on:
+      - opencti
   connector-export-file-csv:
     image: opencti/connector-export-file-csv:4.5.5
     environment:
@@ -123,6 +127,8 @@ services:
       - CONNECTOR_CONFIDENCE_LEVEL=15 # From 0 (Unknown) to 100 (Fully trusted)
       - CONNECTOR_LOG_LEVEL=info
     restart: always
+    depends_on:
+      - opencti
   connector-import-file-stix:
     image: opencti/connector-import-file-stix:4.5.5
     environment:
@@ -136,6 +142,8 @@ services:
       - CONNECTOR_CONFIDENCE_LEVEL=15 # From 0 (Unknown) to 100 (Fully trusted)
       - CONNECTOR_LOG_LEVEL=info
     restart: always
+    depends_on:
+      - opencti
   connector-import-file-pdf-observables:
     image: opencti/connector-import-file-pdf-observables:4.5.5
     environment:
@@ -150,6 +158,8 @@ services:
       - CONNECTOR_LOG_LEVEL=info
       - PDF_OBSERVABLES_CREATE_INDICATOR=False
     restart: always
+    depends_on:
+      - opencti
   connector-cve:
     image: opencti/connector-cve:4.5.5
     environment:
@@ -167,6 +177,8 @@ services:
       - CVE_HISTORY_DATA_FEED=https://nvd.nist.gov/feeds/json/cve/1.1/
       - CVE_INTERVAL=7 # In days, must be strictly greater than 1
     restart: always
+    depends_on:
+      - opencti
   connector-virustotal:
     image: opencti/connector-virustotal:4.5.5
     environment:
@@ -182,6 +194,8 @@ services:
       - VIRUSTOTAL_TOKEN=${CONNECTOR_VIRUSTOTAL_TOKEN}
       - VIRUSTOTAL_MAX_TLP=TLP:AMBER
     restart: always
+    depends_on:
+      - opencti
   connector-mitre:
     image: opencti/connector-mitre:4.5.5
     environment:
@@ -199,6 +213,8 @@ services:
       - MITRE_MOBILE_ATTACK_FILE_URL=https://raw.githubusercontent.com/mitre/cti/master/mobile-attack/mobile-attack.json
       - MITRE_INTERVAL=7 # In days, must be strictly greater than 1
     restart: always
+    depends_on:
+      - opencti
   connector-opencti:
     image: opencti/connector-opencti:4.5.5
     environment:
@@ -215,6 +231,8 @@ services:
       - CONFIG_GEOGRAPHY_FILE_URL=https://raw.githubusercontent.com/OpenCTI-Platform/datasets/master/data/geography.json
       - CONFIG_INTERVAL=7 # In days, must be strictly greater than 1
     restart: always
+    depends_on:
+      - opencti
   connector-cybercrimetracker:
     image: opencti/connector-cybercrime-tracker:4.5.5
     environment:
@@ -233,6 +251,8 @@ services:
       - CYBERCRIME_TRACKER_CREATE_INDICATORS=true
       - CYBERCRIME_TRACKER_CREATE_OBSERVABLES=true
     restart: always
+    depends_on:
+      - opencti
   connector-cyber-threat-coalition:
     image: opencti/connector-cyber-threat-coalition:4.5.5
     environment:
@@ -250,6 +270,8 @@ services:
       - CYBER_THREAT_COALITION_CREATE_INDICATORS=true
       - CYBER_THREAT_COALITION_CREATE_OBSERVABLES=true
     restart: always
+    depends_on:
+      - opencti
   connector-amitt:
     image: opencti/connector-amitt:4.5.5
     environment:
@@ -266,6 +288,8 @@ services:
       - PRE_AMITT_FILE_URL=https://raw.githubusercontent.com/VVX7/cti/master/amitt-pre-attack/amitt-pre-attack.json
       - AMITT_INTERVAL=7 # In days, must be strictly greater than 1
     restart: always
+    depends_on:
+      - opencti
   connector-alienvault:
     image: opencti/connector-alienvault:4.5.5
     environment:
@@ -291,6 +315,8 @@ services:
       - ALIENVAULT_EXCLUDED_PULSE_INDICATOR_TYPES=FileHash-MD5,FileHash-SHA1  # Excluded Pulse indicator types.
       - ALIENVAULT_INTERVAL_SEC=1800
     restart: always
+    depends_on:
+      - opencti
   connector-abuseipdb:
     image: opencti/connector-abuseipdb:4.5.5
     environment:
@@ -306,6 +332,8 @@ services:
       - ABUSEIPDB_API_KEY=${CONNECTOR_ANSUEIPDB_API_KEY}
       - ABUSEIPDB_MAX_TLP=TLP:AMBER
     restart: always
+    depends_on:
+      - opencti
   connector-valhalla:
     image: opencti/connector-valhalla:4.5.5
     environment:
@@ -321,6 +349,8 @@ services:
       - VALHALLA_API_KEY=${CONNECTOR_VALHALLA_API_KEY} # Empty key only fetches public/demo information
       - VALHALLA_INTERVAL_SEC=86400 # Run once every day
     restart: always
+    depends_on:
+      - opencti
   connector-urlhaus:
     image: opencti/connector-urlhaus:4.5.5
     environment:
@@ -338,6 +368,8 @@ services:
       - URLHAUS_CREATE_INDICATORS=true
       - URLHAUS_INTERVAL=3 # In days, must be strictly greater than 1
     restart: always
+    depends_on:
+      - opencti
   connector-malbeacon:
     image: opencti/connector-malbeacon:4.5.5
     environment:
@@ -352,6 +384,8 @@ services:
       - CONNECTOR_LOG_LEVEL=info
       - MALBEACON_API_KEY=${CONNECTOR_MALBEACON_API_KEY}
     restart: always
+    depends_on:
+      - opencti
   connector-greynoise:
     image: opencti/connector-greynoise:4.5.5
     environment:
@@ -371,6 +405,8 @@ services:
       - GREYNOISE_SIGHTING_NOT_SEEN=false
       - GREYNOISE_SPOOFABLE_CONFIDENCE_LEVEL=30
     restart: always
+    depends_on:
+      - opencti
   connector-hybrid-analysis-sandbox:
     image: opencti/connector-hybrid-analysis-sandbox:4.5.5
     environment:
@@ -387,6 +423,8 @@ services:
       - HYBRID_ANALYSIS_ENVIRONMENT_ID=110 # Available environments ID: 300: 'Linux (Ubuntu 16.04, 64 bit)', 200: 'Android Static Analysis', 120: 'Windows 7 64 bit', 110: 'Windows 7 32 bit (HWP Support)', 100: 'Windows 7 32 bit'
       - HYBRID_ANALYSIS_MAX_TLP=TLP:AMBER
     restart: always
+    depends_on:
+      - opencti
   connector-sekoia:
     image: opencti/connector-sekoia:4.5.5
     environment:
@@ -401,6 +439,8 @@ services:
       - CONNECTOR_LOG_LEVEL=info
       - SEKOIA_API_KEY=${CONNECTOR_SEKOIA_KEY}
     restart: always
+    depends_on:
+      - opencti
   connector-tanium:
     image: opencti/connector-tanium:4.5.5
     environment:
@@ -422,6 +462,8 @@ services:
       - TANIUM_AUTO_QUICKSCAN=False # trigger a quick scan when an intel document is imported
       - TANIUM_COMPUTER_GROUPS=1 # computer groups targeted by the auto quick scan (separated by ,)
     restart: always
+    depends_on:
+      - opencti
       connector-cryptolaemus:
         image: opencti/connector-cryptolaemus:4.5.5
         environment:
@@ -435,6 +477,8 @@ services:
           - CONNECTOR_UPDATE_EXISTING_DATA=true
           - CONNECTOR_LOG_LEVEL=info
         restart: always
+        depends_on:
+          - opencti
 volumes:
   esdata:
   s3data:
