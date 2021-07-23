@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Add
 
-- Use docker-compose v3 profile option to enable or disable connector container. See Readme.md 
+- Use docker-compose v3 profile option to enable or disable connector container. See Readme.md
 
 ## [4.5.5] - 2021-07-18
 

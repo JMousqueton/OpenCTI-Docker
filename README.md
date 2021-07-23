@@ -41,9 +41,11 @@ Tested on Ubuntu 20.04
  1) ``git clone https://github.com/JMousqueton/OpenCTI-Docker``
  2) ``cd OpenCTI-Docker``
  3) Modify .env file with your variables
- 4) ``sudo apt update; sudo apt upgrade; sudo apt install docker-compose``
- 5) ``docker-compose up -d``
- 6) Wait a little and connect to <http://<your_IP>:8080>
+ 4) Modify the profile for all connectors in docker-compose.yml
+**start** to enable the connector container / **stop** not disable the connector container
+ 5) ``sudo apt update; sudo apt upgrade; sudo apt install docker-compose``
+ 6) ``docker-compose --profile start up -d``
+ 7) Wait a little and connect to <http://<your_IP>:8080>
 
 Note:
 
