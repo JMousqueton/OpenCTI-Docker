@@ -23,14 +23,10 @@
 | AM!TT | :white_check_mark: |
 | AlienVault | :white_check_mark: |
 | AbuseIPDB | :white_check_mark: |
-| Valhalla | :white_check_mark: |
 | Abuse.ch URLhaus | :x: |
 | Malbeacon  | :white_check_mark: |
-| greynoise  | :white_check_mark: |
-| Hybrid Analysis Sandbox | :white_check_mark: |
-| Sekoia | :white_check_mark: |
-| Tanium | :white_check_mark: |
 | CryptoLaemus | :x: |
+| Shodan | :white_check_mark: | 
 
 - [Changelog](https://github.com/JMousqueton/OpenCTI-Docker/blob/main/CHANGELOG.md)
 
@@ -52,7 +48,7 @@ Tested on Ubuntu 20.04
 Note:
 
 - Use [minio-keygen](https://github.com/JMousqueton/minio-keygen) to generate minio keygen.
-- use ``docker-compose scale worker=3`` to scale the number of workers to 3.
+- use ``uuid-gen`` to generate composant ID.
 
 ## Upgrade
 
@@ -60,14 +56,6 @@ Note:
  2) ``git pull``
  3) ``docker-compose pull``
  4) ``docker-compose up -d``  
-
-## Scale
-
-You can scale the number of worker up to 3.
-
-In the OpenCTI directory :
-
-- ``docker-compose scale worker=3``
 
 ## References
 
