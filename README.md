@@ -50,12 +50,24 @@ Note:
 - Use [minio-keygen](https://github.com/JMousqueton/minio-keygen) to generate minio keygen.
 - use ``uuid-gen`` to generate composant ID.
 
+## Scale
+
+You can scale the number of worker up to X.
+
+In the OpenCTI directory :
+
+- ``docker-compose scale worker=X``
+
+
 ## Upgrade
 
  1) ``cd OpenCTI-Docker``
  2) ``git pull``
  3) ``docker-compose pull``
  4) ``docker-compose up -d``  
+
+Note:
+- TO only update OpenCTI version, you can remplace step 1 & 2 by edition the first line of .env 
 
 ## References
 
