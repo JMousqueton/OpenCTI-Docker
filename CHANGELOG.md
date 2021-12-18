@@ -5,15 +5,37 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## Not released 
+
+## Changed
+
+ - Update ElasticSearch to correct cve-2021-44228 
+
+## [5.1.2] 2021-12-12
+
+## Changed
+
+- OpenCTI moved to release 5.1.2 
+- Connector IMPORT_REPORT changes to IMPORT_DOCUMENT
+
+## Add
+
+- add RiskIQ connector 
+
+## [5.0.3] 2021-11-27
 
 ## Changed
 
 - Use .env variable CTI_VERSION for all images in docker-compose,yml
+- OpenCTI moved to release 5.0.3 
+- Update ElasticSearch version 
+- Update Redis version
+- Update minion version  
 
 ## Add
 
-- Use docker-compose v3 profile option to enable or disable connector container. See Readme.md
+- add Shodan connector 
+- add Malpedia connector
 
 ## [4.5.5] - 2021-07-18
 

@@ -19,36 +19,34 @@
 | MITRE ATT&CK | :x: |
 | OpenCTI | :x: |
 | Cybercrime-Tracker | :x: |
-| CyberThreatCoalition | :x: |
+| ~~CyberThreatCoalition~~ | source ended in Nov '21 |
 | AM!TT | :white_check_mark: |
 | AlienVault | :white_check_mark: |
 | AbuseIPDB | :white_check_mark: |
 | Abuse.ch URLhaus | :x: |
 | Malbeacon  | :white_check_mark: |
 | CryptoLaemus | :x: |
-| Shodan | :white_check_mark: | 
+| Shodan | :white_check_mark: |
+| Malpedia | :x: |
 
-- [Changelog](https://github.com/JMousqueton/OpenCTI-Docker/blob/main/CHANGELOG.md)
+- [Changelog](CHANGELOG.md)
 
 ## Usage
 
 Tested on Ubuntu 20.04
 
- 1) ``git clone https://github.com/JMousqueton/OpenCTI-Docker``
+ 1) ``git clone https://git.cec-fr.digital/-/ide/project/jmousqueton-adm/OpenCTI-Docker/``
  2) ``cd OpenCTI-Docker``
- 3) Modify .env file with your variables
- 4) Modify the profile for all connectors in docker-compose.yml
- 
-**start** to enable the connector container / **stop** not disable the connector container
- 
- 5) ``sudo apt update; sudo apt upgrade; sudo apt install docker-compose``
- 6) ``docker-compose --profile start up -d``
- 7) Wait a little and connect to <http://<your_IP>:8080>
+ 3) ``cp .env.sample .env``
+ 4) Modify .env file with your variables
+ 5) ``sudo apt update && sudo apt upgrade -y && sudo apt install docker-compose``
+ 6) ``sudo docker-compose --profile start up -d``
+ 7) Wait a little and connect to http://<your_IP>:8080
 
 Note:
 
 - Use [minio-keygen](https://github.com/JMousqueton/minio-keygen) to generate minio keygen.
-- use ``uuid-gen`` to generate composant ID.
+- use ``uuid-gen`` to generate TOKEN and connectors ID.
 
 ## Scale
 
@@ -58,7 +56,6 @@ In the OpenCTI directory :
 
 - ``docker-compose scale worker=X``
 
-
 ## Upgrade
 
  1) ``cd OpenCTI-Docker``
@@ -67,7 +64,8 @@ In the OpenCTI directory :
  4) ``docker-compose up -d``  
 
 Note:
-- TO only update OpenCTI version, you can remplace step 1 & 2 by edition the first line of .env 
+
+- To only update OpenCTI version, you can replace step 1 & 2 by editing the first line of .env with the targeted version.
 
 ## References
 

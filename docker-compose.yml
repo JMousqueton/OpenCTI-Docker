@@ -1,12 +1,12 @@
 version: '3'
 services:
   redis:
-    image: redis:6.2.4
+    image: redis:6.2.6
     restart: always
     volumes:
       - redisdata:/data
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.13.1
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.16.1
     volumes:
       - esdata:/usr/share/elasticsearch/data
     environment:
@@ -21,7 +21,7 @@ services:
         soft: 65536
         hard: 65536
   minio:
-    image: minio/minio:RELEASE.2021-06-14T01-29-23Z
+    image: minio/minio:RRELEASE.2021-10-13T00-23-17Z
     volumes:
       - s3data:/data
     ports:
@@ -37,7 +37,7 @@ services:
       retries: 3
     restart: always
   rabbitmq:
-    image: rabbitmq:3.8-management
+    image: rabbitmq:3.9-management
     environment:
       - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER}
       - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}
@@ -100,6 +100,8 @@ services:
       - CONNECTOR_CONFIDENCE_LEVEL=15 # From 0 (Unknown) to 100 (Fully trusted)
       - CONNECTOR_LOG_LEVEL=info
     restart: always
+    depends_on:
+      - opencti
   connector-export-file-stix:
     image: opencti/connector-export-file-stix:${OPENCTI_VERSION}
     environment:
@@ -112,6 +114,8 @@ services:
       - CONNECTOR_CONFIDENCE_LEVEL=15 # From 0 (Unknown) to 100 (Fully trusted)
       - CONNECTOR_LOG_LEVEL=info
     restart: always
+    depends_on:
+      - opencti
   connector-export-file-csv:
     image: opencti/connector-export-file-csv:${OPENCTI_VERSION}
     environment:
@@ -124,6 +128,8 @@ services:
       - CONNECTOR_CONFIDENCE_LEVEL=15 # From 0 (Unknown) to 100 (Fully trusted)
       - CONNECTOR_LOG_LEVEL=info
     restart: always
+    depends_on:
+      - opencti
   connector-import-file-stix:
     image: opencti/connector-import-file-stix:${OPENCTI_VERSION}
     environment:
@@ -137,21 +143,25 @@ services:
       - CONNECTOR_CONFIDENCE_LEVEL=15 # From 0 (Unknown) to 100 (Fully trusted)
       - CONNECTOR_LOG_LEVEL=info
     restart: always
+    depends_on:
+      - opencti
   connector-import-report:
-    image: opencti/connector-import-report:${OPENCTI_VERSION}
+    image: opencti/connector-import-document:${OPENCTI_VERSION}
     environment:
       - OPENCTI_URL=http://opencti:8080
       - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
       - CONNECTOR_ID=${CONNECTOR_IMPORT_REPORT_ID} # Valid UUIDv4
       - CONNECTOR_TYPE=INTERNAL_IMPORT_FILE
       - CONNECTOR_NAME=ImportReport
-      - CONNECTOR_SCOPE=application/pdf,text/plain
+      - CONNECTOR_SCOPE=application/pdf,text/plain,text/htlm
       - CONNECTOR_AUTO=false # Enable/disable auto-import of file
-      - CONNECTOR_ONLY_CONTEXTUAL=true # Only extract data related to an entity (a report, a threat actor, etc.)
+      - CONNECTOR_ONLY_CONTEXTUAL=false # Only extract data related to an entity (a report, a threat actor, etc.)
       - CONNECTOR_CONFIDENCE_LEVEL=15 # From 0 (Unknown) to 100 (Fully trusted)
       - CONNECTOR_LOG_LEVEL=info
-      - IMPORT_REPORT_CREATE_INDICATOR=false
+      - IMPORT_REPORT_CREATE_INDICATOR=true
     restart: always
+    depends_on:
+      - opencti
   connector-cve:
     image: opencti/connector-cve:${OPENCTI_VERSION}
     environment:
@@ -169,6 +179,8 @@ services:
       - CVE_HISTORY_DATA_FEED=https://nvd.nist.gov/feeds/json/cve/1.1/
       - CVE_INTERVAL=7 # In days, must be strictly greater than 1
     restart: always
+    depends_on:
+      - opencti
   connector-abuseipdb:
     image: opencti/connector-abuseipdb:${OPENCTI_VERSION}
     environment:
@@ -183,7 +195,9 @@ services:
       - CONNECTOR_LOG_LEVEL=info
       - ABUSEIPDB_API_KEY=${CONNECTOR_ABUSEIPDB_API}
       - ABUSEIPDB_MAX_TLP=TLP:AMBER
-    restart: always  
+    restart: always
+    depends_on:
+      - opencti  
   connector-mitre:
     image: opencti/connector-mitre:${OPENCTI_VERSION}
     environment:
@@ -202,6 +216,8 @@ services:
       - MITRE_ICS_ATTACK_FILE_URL=https://raw.githubusercontent.com/mitre/cti/master/ics-attack/ics-attack.json
       - MITRE_INTERVAL=7 # In days, must be strictly greater than 1
     restart: always
+    depends_on:
+      - opencti
   connector-alienvault:
     image: opencti/connector-alienvault:${OPENCTI_VERSION}
     environment:
@@ -229,6 +245,8 @@ services:
       - ALIENVAULT_ENABLE_ATTACK_PATTERNS_INDICATES=true                      # Enable/Disable "indicates" relationships between indicators and attack patterns
       - ALIENVAULT_INTERVAL_SEC=1800
     restart: always
+    depends_on:
+      - opencti
   connector-amitt:
     image: opencti/connector-amitt:${OPENCTI_VERSION}
     environment:
@@ -245,8 +263,10 @@ services:
       - PRE_AMITT_FILE_URL=https://raw.githubusercontent.com/VVX7/cti/master/amitt-pre-attack/amitt-pre-attack.json
       - AMITT_INTERVAL=7 # In days, must be strictly greater than 1
     restart: always
+    depends_on:
+      - opencti
   connector-shodan:
-   image: opencti/connector-shodan:rolling
+   image: opencti/connector-shodan:${OPENCTI_VERSION}
    environment:
       - OPENCTI_URL=http://opencti:8080
       - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
@@ -259,9 +279,11 @@ services:
       - CONNECTOR_LOG_LEVEL=info
       - SHODAN_TOKEN=${CONNECTOR_SHODAN_API}
       - SHODAN_MAX_TLP=TLP:AMBER
-   restart: always 
+   restart: always
+   depends_on:
+      - opencti 
   connector-cryptolaemus:
-    image: opencti/connector-cryptolaemus:4.5.5
+    image: opencti/connector-cryptolaemus:${OPENCTI_VERSION}
     environment:
       - OPENCTI_URL=http://opencti:8080
       - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
@@ -273,6 +295,8 @@ services:
       - CONNECTOR_UPDATE_EXISTING_DATA=true
       - CONNECTOR_LOG_LEVEL=info
     restart: always
+    depends_on:
+      - opencti
   connector-malbeacon:
     image: opencti/connector-malbeacon:${OPENCTI_VERSION}
     environment:
@@ -287,6 +311,8 @@ services:
       - CONNECTOR_LOG_LEVEL=info
       - MALBEACON_API_KEY=${CONNECTOR_MALBEACON_API}
     restart: always
+    depends_on:
+      - opencti
   connector-urlhaus:
     image: opencti/connector-urlhaus:${OPENCTI_VERSION}
     environment:
@@ -304,6 +330,8 @@ services:
       - URLHAUS_CREATE_INDICATORS=true
       - URLHAUS_INTERVAL=3 # In days, must be strictly greater than 1
     restart: always
+    depends_on:
+      - opencti
   connector-virustotal:
     image: opencti/connector-virustotal:${OPENCTI_VERSION}
     environment:
@@ -319,6 +347,8 @@ services:
       - VIRUSTOTAL_TOKEN=${CONNECTOR_VIRUSTOTAL_API}
       - VIRUSTOTAL_MAX_TLP=TLP:AMBER
     restart: always
+    depends_on:
+      - opencti
   connector-vxvault:
     image: opencti/connector-vxvault:${OPENCTI_VERSION}
     environment:
@@ -335,6 +365,8 @@ services:
       - VXVAULT_CREATE_INDICATORS=true
       - VXVAULT_INTERVAL=3 # In days, must be strictly greater than 1
     restart: always
+    depends_on:
+      - opencti
   connector-cyber-threat-coalition:
     image: opencti/connector-cyber-threat-coalition:${OPENCTI_VERSION}
     environment:
@@ -352,6 +384,8 @@ services:
       - CYBER_THREAT_COALITION_CREATE_INDICATORS=true
       - CYBER_THREAT_COALITION_CREATE_OBSERVABLES=true
     restart: always
+    depends_on:
+      - opencti
   connector-cybercrimetracker:
     image: opencti/connector-cybercrime-tracker:${OPENCTI_VERSION}
     environment:
@@ -370,6 +404,42 @@ services:
       - CYBERCRIME_TRACKER_CREATE_INDICATORS=true
       - CYBERCRIME_TRACKER_CREATE_OBSERVABLES=true
     restart: always
+  connector-shodan:
+   image: opencti/connector-shodan:${OPENCTI_VERSION}
+   environment:
+      - OPENCTI_URL=http://opencti:8080
+      - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
+      - CONNECTOR_ID=${CONNECTOR_SHODAN_ID}
+      - CONNECTOR_TYPE=INTERNAL_ENRICHMENT
+      - CONNECTOR_NAME=Shodan
+      - CONNECTOR_SCOPE=IPv4-Addr
+      - CONNECTOR_AUTO=true
+      - CONNECTOR_CONFIDENCE_LEVEL=75 # From 0 (Unknown) to 100 (Fully trusted)
+      - CONNECTOR_LOG_LEVEL=info
+      - SHODAN_TOKEN=${CONNECTOR_SHODAN_API}
+      - SHODAN_MAX_TLP=TLP:AMBER
+   restart: always
+  connector-malpedia:
+    image: opencti/connector-malpedia:${OPENCTI_VERSION}
+    environment:
+      - OPENCTI_URL=http://opencti:8080
+      - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
+      - CONNECTOR_ID=${CONNECTOR_MALPEDIA_ID}
+      - CONNECTOR_TYPE=EXTERNAL_IMPORT
+      - CONNECTOR_NAME=Malpedia
+      - CONNECTOR_SCOPE=malpedia
+      - CONNECTOR_CONFIDENCE_LEVEL=30 # From 0 (Unknown) to 100 (Fully trusted)
+      - CONNECTOR_UPDATE_EXISTING_DATA=false
+      - CONNECTOR_LOG_LEVEL=info
+      - MALPEDIA_AUTH_KEY= # Empty key only fetches TLP:WHITE information
+      - MALPEDIA_INTERVAL_SEC=86400 # Run once every day
+      - MALPEDIA_IMPORT_INTRUSION_SETS=false
+      - MALPEDIA_IMPORT_YARA=true
+      - MALPEDIA_CREATE_INDICATORS=true
+      - MALPEDIA_CREATE_OBSERVABLES=true
+    restart: always
+    depends_on:
+      - opencti
 volumes:
   esdata:
   s3data:
