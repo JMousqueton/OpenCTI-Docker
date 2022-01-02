@@ -7,8 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Not released 
 
+## [5.1.3] 2022-01-02
+
 ## Changed
 
+ - OpenCTI moved to release 5.1.3  
  - Update ElasticSearch to correct cve-2021-44228 
 
 ## [5.1.2] 2021-12-12
