@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Not released 
 
+## [5.2.4] 2022-04-30
+
+## Changed
+
+ - OpenCTI moved to release 5.2.4  
+ - Update ElasticSearch 
+ - Update minio 
+
 ## [5.1.3] 2022-01-02
 
 ## Changed
