@@ -35,7 +35,7 @@
 
 Tested on Ubuntu 20.04
 
- 1) ``git clone https://git.cec-fr.digital/-/ide/project/jmousqueton-adm/OpenCTI-Docker/``
+ 1) ``git clone https://github.com/JMousqueton/OpenCTI-Docker/``
  2) ``cd OpenCTI-Docker``
  3) ``cp .env.sample .env``
  4) Modify .env file with your variables
