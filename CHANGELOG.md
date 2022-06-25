@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Not released 
 
+## [5.3.7] 2022-06-25
+
+### Changed
+
+ - OpenCTI moved to release 5.3.7  
+
 ## [5.2.4] 2022-04-30
 
 ### Changed
