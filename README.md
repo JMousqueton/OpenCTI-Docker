@@ -28,6 +28,7 @@
 | CryptoLaemus | :x: |
 | Shodan | :white_check_mark: |
 | Malpedia | :x: |
+| CISA | :x: | 
 
 - [Changelog](CHANGELOG.md)
 
