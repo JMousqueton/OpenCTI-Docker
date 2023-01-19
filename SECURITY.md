@@ -6,7 +6,9 @@ which versions are currently being supported with security updates.
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 5.3.x   | :white_check_mark: |
+| 5.5.x   | :white_check_mark: |
+| 5.4.x   | :x: |
+| 5.3.x   | :x: |
 | 5.2.x   | :x: |
 | 5.1.x   | :x: |
 | 5.0.x   | :x: |
